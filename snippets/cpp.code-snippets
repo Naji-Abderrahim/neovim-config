@@ -1,0 +1,83 @@
+{
+	"function Description": {
+        "prefix": "func-Desc",
+        "body": [
+            "/*",
+			" * @Description : ${1:Description.}",
+			" * @param ${2:name} ${3:Type and description of the parameter.}",
+			" * ",
+			" * @return ${4:Type and description of the returned value.}",
+            " *",
+            " */"
+        ],
+        "description": "A simple C++ comment block for classes, including short summary, and details. Useful when you prefer to add the other documentation tags manually."
+    },
+	"hppclass": {
+		"prefix": "hpp class",
+			"body": [
+				"class ${1:MyClass} {",
+			"\tpublic:",
+			"\t\t$1();",
+			"\t\t$1(const $1 &);",
+			"\t\t$1 &operator=(const $1 &);",
+			"\t\t~$1();",
+			"",
+			"\tprivate:",
+			"\t\t$2",
+			"};"
+			],
+			"description": "Code snippet for header file class"
+	},
+		"cppclass": {
+			"prefix": "cpp class",
+			"body": [
+				"\n",
+			"$1::$1() {",
+			"}",
+			"",
+			"$1::$1(const $1& obj) {",
+			"\t(void)obj;",
+			"}",
+			"",
+			"$1 &$1::operator=(const $1& obj)",
+			"{",
+			"\tif (this == &obj)",
+			"\t\treturn (*this);",
+			"\treturn (*this);",
+			"}",
+			"",
+			"$1::~$1() {",
+			"}"
+			],
+			"description": "Code snippet for emplimentation of the header class"
+		},
+		"Main No Args function template": {
+			"prefix": "main no args",
+			"body": [
+				"int main () {",
+			"\t$1",
+			"\treturn 0;",
+			"}"
+			],
+			"description": "A standard main function for a C++ program"
+		},
+	"Start a header file with gaurds": {
+		"prefix": "hpp_st",
+			"body": [
+				"#ifndef $1",
+				"#define $1",
+				"",
+				"$2",
+				"",
+				"#endif //!$1",
+			],
+			"description": "Start a new header file gaurd"
+	},
+		"insert std::endl": {
+			"prefix": "endl",
+			"body": [
+				"std::endl",
+			],
+			"description": "A standard main function for a C++ program"
+		},
+}
