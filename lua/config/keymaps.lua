@@ -84,6 +84,9 @@ vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
+-- TO-DO: make a keymap for replacing eithin a range
+-- vim.keymap.set("v", "<leader>s", )
+
 -- telescope keymaps
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
