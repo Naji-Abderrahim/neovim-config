@@ -27,7 +27,7 @@ return {
 					provider = "copilot",
 					chat = true,
 					command = true,
-					model = { model = "gpt-4" },
+					model = { model = "gpt-5.1" },
 					system_prompt = "You are GitHub Copilot integrated into Neovim.",
 				},
 			},

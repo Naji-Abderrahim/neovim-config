@@ -1,3 +1,3 @@
 return {
-  "paretje/nvim-man",
+  "paretje/nvim-man"
 }

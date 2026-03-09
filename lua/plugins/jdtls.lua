@@ -82,11 +82,12 @@ return {
             },
             on_attach = function(client, bufnr)
               -- Same keymaps as before
+			  local hover = require("hover").hover
               local opts = { buffer = bufnr, remap = false }
               vim.keymap.set("n", "<leader>gd", function() vim.lsp.buf.definition() end, opts)
-              vim.keymap.set("n", "<leader>q", function() vim.lsp.buf.hover() end, opts)
+              vim.keymap.set("n", "<leader>q", hover(), {})
               vim.keymap.set("n", "<leader>cw", function() vim.lsp.buf.workspace_symbol() end, opts)
-              vim.keymap.set("n", "<leader>cf", function() vim.diagnostic.open_float() end, opts)
+              vim.keymap.set("n", "<leader>cf", hover, {})
               vim.keymap.set("n", "<leader>cn", function() vim.diagnostic.goto_next() end, opts)
               vim.keymap.set("n", "<leader>cp", function() vim.diagnostic.goto_prev() end, opts)
               vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)

@@ -5,4 +5,7 @@ require("config.autocmds")
 require("config.options")
 
 
-require("myplugin").setup()
+vim.api.nvim_create_user_command("ShowPopup", function()
+	require("myplugin").setup()
+end, {})
+

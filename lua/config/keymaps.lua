@@ -1,12 +1,12 @@
-local function toggleexplorer()
-	if vim.api.nvim_buf_get_option(0, 'filetype') == 'netrw' then
-		vim.api.nvim_exec('Rexplore', false)
-	else
-		vim.api.nvim_exec(':Explore', false)
-	end
-end
-
-vim.keymap.set('n', '<F2>', toggleexplorer)
+-- local function toggleexplorer()
+-- 	if vim.api.nvim_buf_get_option(0, 'filetype') == 'netrw' then
+-- 		vim.api.nvim_exec('Rexplore', false)
+-- 	else
+-- 		vim.api.nvim_exec(':Explore', false)
+-- 	end
+-- end
+--
+vim.keymap.set('n', '<F2>', "<Cmd>Neotree filesystem toggle<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -48,18 +48,15 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<C-x>", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/Ai/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
 -- Window action remap
 vim.keymap.set("n", "<leader>v", vim.cmd.vsp)
 vim.keymap.set("n", "<leader><S-v>", vim.cmd.sp)
 
 -- H-J-K-L Mapping
-vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><h>", "<C-w><left>")
-vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><j>", "<C-w><right>")
-vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><k>", "<C-w><up>")
-vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><l>", "<C-w><down>")
+vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader>h", "<C-w><left>")
+vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader>l", "<C-w><right>")
+vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader>k", "<C-w><up>")
+vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader>j", "<C-w><down>")
 
 -- Arrow Mapping
 vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><left>", "<C-w><left>")
@@ -67,18 +64,27 @@ vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><right>", "<C-w><right
 vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><up>", "<C-w><up>")
 vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><down>", "<C-w><down>")
 
-vim.keymap.set("n", "<Leader>k", function()
-	vim.cmd.Man({ vim.fn.input("man :") })
-end)
+-- vim.keymap.set("n", "<Leader>k", function()
+-- 	vim.cmd.Man({ vim.fn.input("man :") })
+-- end)
+
+-- quick-fix list
+-- vim.keymap.set("n", "<leader>j", vim.cmd.cnext)
+-- vim.keymap.set("n", "<leader>k", vim.cmd.cprev)
+-- cdo can help replace some words with other using: cdo /s/<old_word>/<new_word>/gc
+-- gc will do it globally and it will check eith you for the change
 
 -- set Esc to change btw modes in toggle term
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>");
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 --for 42 header
-vim.keymap.set("n", "<F3>", vim.cmd.Stdheader);
+-- Not Used (only needed when i was on 1337)
+-- vim.keymap.set("n", "<F3>", vim.cmd.Stdheader);
 
---cycles between two buffers
+-- cycles between buffers
 vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader>b", vim.cmd.bnext);
+-- delete a buffer
+vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader>bd", "<Cmd>bd!<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
@@ -94,6 +100,9 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find, {})
+
+-- my own plugin that generates a small description for a function kemap
+vim.keymap.set('n', '<leader>cc', vim.cmd.ShowPopup, {})
 
 
 -- vim.g.toggleterm_keymap = {
