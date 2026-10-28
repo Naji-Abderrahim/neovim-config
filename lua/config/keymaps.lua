@@ -6,7 +6,7 @@
 -- 	end
 -- end
 --
-vim.keymap.set('n', '<F2>', "<Cmd>Neotree filesystem toggle<CR>")
+vim.keymap.set({ "n", "v", "x", "c", "s", "o", "i"}, '<F2>', "<CMD>Oil<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -69,8 +69,8 @@ vim.keymap.set({ "n", "v", "x", "c", "s", "o" }, "<leader><down>", "<C-w><down>"
 -- end)
 
 -- quick-fix list
--- vim.keymap.set("n", "<leader>j", vim.cmd.cnext)
--- vim.keymap.set("n", "<leader>k", vim.cmd.cprev)
+vim.keymap.set("n", "<leader>,", vim.cmd.cprev)
+vim.keymap.set("n", "<leader>.", vim.cmd.cnext)
 -- cdo can help replace some words with other using: cdo /s/<old_word>/<new_word>/gc
 -- gc will do it globally and it will check eith you for the change
 
@@ -103,6 +103,10 @@ vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find, {})
 
 -- my own plugin that generates a small description for a function kemap
 vim.keymap.set('n', '<leader>cc', vim.cmd.ShowPopup, {})
+
+-- a plugin that highlights the selected lines and keep the highlight until i clear it
+vim.keymap.set("v", "<leader>x", vim.cmd.HighlightSelection)
+vim.keymap.set("n", "<leader>xc", vim.cmd.ClearHighlight)
 
 
 -- vim.g.toggleterm_keymap = {
