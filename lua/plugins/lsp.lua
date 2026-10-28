@@ -11,6 +11,7 @@ return {
 		local mason = require("mason")
 		local lspconfig = require('lspconfig')
 
+		-- vim.lsp.set_log_level("debug")
 
 		vim.lsp.config("lua_ls", {
 			settings = {
@@ -21,6 +22,30 @@ return {
 				},
 			},
 		})
+
+		-- local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+		-- Unique workspace per project
+		-- local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/" .. project_name
+
+		-- vim.lsp.config("jdtls", {
+		-- 	cmd = {
+		-- 		"/opt/homebrew/opt/openjdk@21/bin/java", -- confirm this path
+		-- 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+		-- 		"-Dosgi.bundles.defaultStartLevel=4",
+		-- 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
+		-- 		"-Dlog.protocol=true",
+		-- 		"-Dlog.level=ALL",
+		-- 		"-Xmx1g",
+		-- 		"--add-modules=ALL-SYSTEM",
+		-- 		"--add-opens", "java.base/java.util=ALL-UNNAMED",
+		-- 		"--add-opens", "java.base/java.lang=ALL-UNNAMED",
+		-- 		"-jar",
+		-- 		"/Users/um6p_mac_naji/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar",
+		-- 		"-configuration", "/Users/um6p_mac_naji/.local/share/nvim/mason/packages/jdtls/config_mac",
+		-- 		"-data", workspace_dir,
+		-- 	}
+		-- })
 
 		mason.setup()
 		m_lsp.setup()

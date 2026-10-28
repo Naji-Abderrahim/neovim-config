@@ -10,15 +10,14 @@ return {
 			panel = {
 				enabled = false
 			},
-
 			suggestion = {
 				enabled = true,
 				auto_trigger = true,
 				keymap = {
-					accept = "<M-l>",
+					accept = "<A-l>",
 					dismiss = "<C-]>",
-					next = "<M-]>",
-					prev = "<M-[>",
+					next = "<A-]>",
+					prev = "<A-[>",
 				},
 			},
 

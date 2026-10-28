@@ -7,7 +7,7 @@ return {
 		  hide_numbers = false,
 		  start_in_insert = true,
 		  close_on_exit = true,
-		  shell = "/usr/bin/bash"
+		  shell = "/bin/zsh"
 	  })
   end,
 }
